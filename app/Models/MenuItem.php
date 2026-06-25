@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Staff extends Model
+class MenuItem extends Model
 {
-    protected $fillable = ['name', 'role', 'photo', 'order'];
+    protected $fillable = ['name', 'description', 'price', 'photo', 'category', 'active'];
 }
