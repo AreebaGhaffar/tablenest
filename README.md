@@ -1,86 +1,109 @@
-# TableNest Restaurant Website
+<div align="center">
 
-A complete, fully functional restaurant website built with Laravel 12 and Filament v5 admin panel. The TableNest Admin can manage all content independently — no developer help needed after delivery.
+<img src="public/images/logo.jpeg" alt="TableNest Logo" width="120" style="border-radius: 50%;" />
+
+# TableNest Restaurant
+
+### Fine Dining · Warm Hospitality
+
+A fully functional, production-ready restaurant website with a custom admin panel — built with Laravel 12 & Filament v5.
+
+[![Laravel](https://img.shields.io/badge/Laravel-12-FF2D20?style=flat-square&logo=laravel&logoColor=white)](https://laravel.com)
+[![Filament](https://img.shields.io/badge/Filament-v5-F59E0B?style=flat-square)](https://filamentphp.com)
+[![PHP](https://img.shields.io/badge/PHP-8.2+-777BB4?style=flat-square&logo=php&logoColor=white)](https://php.net)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=flat-square&logo=mysql&logoColor=white)](https://mysql.com)
+
+</div>
 
 ---
 
-## Live Demo
+## Overview
 
-- **Website:** `http://localhost:8000`
-- **Admin Panel:** `http://localhost:8000/admin`
-- **Admin Email:** `admin@tablenest.com`
-- **Admin Password:** `Admin@1234`
+TableNest is a complete restaurant web presence — from a polished public-facing site to a fully secured admin dashboard. The restaurant owner can independently manage every piece of content: menu items, staff profiles, gallery photos, contact details, and the About page — all without touching a single line of code.
 
 ---
 
-## Features
+## Pages
 
-| Page | Description |
-|------|-------------|
-| **Home** | Hero banner with restaurant name, tagline, and call-to-action |
-| **Menu** | Tabbed menu (Starters, Mains, Desserts, Drinks) — admin managed |
-| **About Us** | Restaurant story, chef introduction, and brand values |
-| **Staff** | Team section with photos, names, and roles |
-| **Gallery** | Photo grid showcasing ambiance and dishes |
-| **Contact** | Address, phone, email, and contact form |
-| **Admin Panel** | Secure login — full control over all content |
+| Route | Page | Description |
+|-------|------|-------------|
+| `/` | Home | Hero banner, tagline, and call-to-action |
+| `/menu` | Menu | Tabbed by category: Starters, Mains, Desserts, Drinks |
+| `/about` | About Us | Restaurant story, chef profile, brand values |
+| `/staff` | Our Team | Staff cards with photos, names, and roles |
+| `/gallery` | Gallery | Masonry photo grid with hover captions |
+| `/contact` | Contact | Address, phone, email, map embed, contact form |
+| `/admin` | Admin Panel | Secure dashboard — full content control |
+
+---
+
+## Admin Panel
+
+> Powered by [Filament v5](https://filamentphp.com) — a world-class Laravel admin framework.
+
+The **TableNest Admin** can log in at `/admin` and manage:
+
+- 🍽️ **Menu Items** — name, description, price, category, photo, active/inactive toggle
+- 👨‍🍳 **Staff** — name, role, photo, display order
+- 🖼️ **Gallery** — upload or delete photos with captions
+- 📖 **About Content** — story, chef name, chef bio, chef photo, values
+- 📍 **Contact Info** — address, phone, email, Google Maps embed
 
 ---
 
 ## Tech Stack
 
-| Layer | Technology |
-|-------|------------|
-| Frontend | HTML / CSS / JavaScript / Blade |
-| Backend | Laravel 12 (PHP) |
-| Database | MySQL |
-| Admin Panel | Filament v5 |
-| Auth | Laravel Breeze |
+```
+Frontend    →  Blade Templates · Vanilla CSS · Alpine.js
+Backend     →  Laravel 12 (PHP 8.2)
+Database    →  MySQL 8
+Admin       →  Filament v5
+Auth        →  Laravel Breeze
+Storage     →  Laravel Filesystem (local/public disk)
+Build Tool  →  Vite
+```
 
 ---
 
-## Requirements
+## Local Setup
+
+### Prerequisites
 
 - PHP 8.2+
 - Composer
-- Node.js & npm
+- Node.js 18+ & npm
 - MySQL
-- XAMPP (for local development)
+- XAMPP or Laravel Herd
 
 ---
 
-## Installation & Setup
-
-### 1. Clone the Repository
+### Step 1 — Clone
 
 ```bash
 git clone https://github.com/AreebaGhaffar/tablenest.git
 cd tablenest
 ```
 
-### 2. Install PHP Dependencies
+### Step 2 — Install Dependencies
 
 ```bash
 composer install
+npm install && npm run build
 ```
 
-### 3. Install Node Dependencies & Build Assets
-
-```bash
-npm install
-npm run build
-```
-
-### 4. Environment Setup
+### Step 3 — Environment
 
 ```bash
 cp .env.example .env
 php artisan key:generate
 ```
 
-Open `.env` and configure your database:
+Update `.env`:
 
 ```env
+APP_NAME=TableNest
+APP_URL=http://localhost:8000
+
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -88,59 +111,39 @@ DB_DATABASE=tablenest
 DB_USERNAME=root
 DB_PASSWORD=
 
-APP_URL=http://localhost:8000
 FILESYSTEM_DISK=public
 FILAMENT_FILESYSTEM_DISK=public
 ```
 
-### 5. Create Database
+### Step 4 — Database
 
-Open phpMyAdmin at `http://localhost/phpmyadmin` and create a database named `tablenest`.
-
-### 6. Run Migrations
+Create a MySQL database named `tablenest`, then run:
 
 ```bash
 php artisan migrate
-```
-
-### 7. Create Storage Link
-
-```bash
 php artisan storage:link
 ```
 
-### 8. Create Admin User
+### Step 5 — Admin Account
 
 ```bash
 php artisan make:filament-user
 ```
 
-Enter:
-- **Name:** TableNest Admin
-- **Email:** admin@tablenest.com
-- **Password:** Admin@1234
+| Field | Value |
+|-------|-------|
+| Name | TableNest Admin |
+| Email | admin@tablenest.com |
+| Password | *(set your own)* |
 
-### 9. Start the Server
+### Step 6 — Serve
 
 ```bash
 php artisan serve
 ```
 
-Visit `http://localhost:8000` to see the website.
-
----
-
-## Admin Panel Usage
-
-Visit `http://localhost:8000/admin` and log in with the admin credentials.
-
-From the admin panel you can:
-
-- **Menu Items** — Add, edit, or remove menu items with price, description, photo, and category
-- **Staff** — Manage team members with photos, names, and roles
-- **Gallery** — Upload or delete gallery photos anytime
-- **About Content** — Edit restaurant story, chef introduction, and values
-- **Contact Info** — Update address, phone, email, and Google Maps embed
+Visit → `http://localhost:8000`  
+Admin → `http://localhost:8000/admin`
 
 ---
 
@@ -149,14 +152,21 @@ From the admin panel you can:
 ```
 tablenest/
 ├── app/
-│   ├── Filament/Resources/     # Admin panel resources
-│   ├── Http/Controllers/       # Public website controllers
-│   └── Models/                 # Eloquent models
+│   ├── Filament/
+│   │   └── Resources/           # Admin CRUD resources
+│   │       ├── AboutContents/
+│   │       ├── ContactInfos/
+│   │       ├── Galleries/
+│   │       ├── MenuItems/
+│   │       └── Staff/
+│   ├── Http/Controllers/        # Public page controllers
+│   └── Models/                  # Eloquent models
 ├── database/
-│   └── migrations/             # Database migrations
+│   └── migrations/              # All table migrations
 ├── resources/
-│   └── views/                  # Blade templates
-│       ├── layouts/app.blade.php
+│   └── views/
+│       ├── layouts/
+│       │   └── app.blade.php    # Shared navbar + footer
 │       ├── home.blade.php
 │       ├── menu.blade.php
 │       ├── about.blade.php
@@ -164,28 +174,49 @@ tablenest/
 │       ├── gallery.blade.php
 │       └── contact.blade.php
 ├── routes/
-│   └── web.php                 # Application routes
+│   └── web.php
 └── public/
-    └── images/                 # Logo and static images
+    └── images/
+        └── logo.jpeg
 ```
 
 ---
 
-## Deliverables
+## Deliverables Checklist
 
-- ✅ Fully functional restaurant website with all listed pages
-- ✅ Secure TableNest Admin login
-- ✅ Mobile responsive design
-- ✅ Working demo with sample content
-- ✅ Complete source code, clean and well organized
-- ✅ 1 round of revisions included after delivery
-
----
-
-## Support
-
-For any issues or revision requests, please contact the developer.
+- [x] Fully functional restaurant website — all 6 pages
+- [x] Secure admin login — TableNest Admin only
+- [x] Mobile responsive — phones, tablets, desktops
+- [x] Working demo with sample content
+- [x] Complete, clean, well-organized source code
+- [x] 1 round of revisions included after delivery
 
 ---
 
-*Built with ❤️ using Laravel & Filament*
+## Design
+
+The visual identity is derived directly from the TableNest logo:
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--dark` | `#1C0F08` | Page background |
+| `--brown` | `#3B1F0E` | Cards, navbar |
+| `--cream` | `#F5E6C8` | Primary text |
+| `--orange` | `#D4651A` | Accents, CTAs |
+| `--tan` | `#E8D5A3` | Secondary text |
+
+Typography: **Playfair Display** (headings) · **Lato** (body)
+
+---
+
+## License
+
+This project was built as a client deliverable. All rights reserved.
+
+---
+
+<div align="center">
+
+Built with Laravel & Filament · Delivered by **Areeba Ghaffar**
+
+</div>
