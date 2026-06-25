@@ -1,59 +1,191 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# TableNest Restaurant Website
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A complete, fully functional restaurant website built with Laravel 12 and Filament v5 admin panel. The TableNest Admin can manage all content independently — no developer help needed after delivery.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Live Demo
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Website:** `http://localhost:8000`
+- **Admin Panel:** `http://localhost:8000/admin`
+- **Admin Email:** `admin@tablenest.com`
+- **Admin Password:** `Admin@1234`
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## Features
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+| Page | Description |
+|------|-------------|
+| **Home** | Hero banner with restaurant name, tagline, and call-to-action |
+| **Menu** | Tabbed menu (Starters, Mains, Desserts, Drinks) — admin managed |
+| **About Us** | Restaurant story, chef introduction, and brand values |
+| **Staff** | Team section with photos, names, and roles |
+| **Gallery** | Photo grid showcasing ambiance and dishes |
+| **Contact** | Address, phone, email, and contact form |
+| **Admin Panel** | Secure login — full control over all content |
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## Tech Stack
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+| Layer | Technology |
+|-------|------------|
+| Frontend | HTML / CSS / JavaScript / Blade |
+| Backend | Laravel 12 (PHP) |
+| Database | MySQL |
+| Admin Panel | Filament v5 |
+| Auth | Laravel Breeze |
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## Requirements
 
-## Contributing
+- PHP 8.2+
+- Composer
+- Node.js & npm
+- MySQL
+- XAMPP (for local development)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## Installation & Setup
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 1. Clone the Repository
 
-## Security Vulnerabilities
+```bash
+git clone https://github.com/AreebaGhaffar/tablenest.git
+cd tablenest
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 2. Install PHP Dependencies
 
-## License
+```bash
+composer install
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 3. Install Node Dependencies & Build Assets
+
+```bash
+npm install
+npm run build
+```
+
+### 4. Environment Setup
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+Open `.env` and configure your database:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=tablenest
+DB_USERNAME=root
+DB_PASSWORD=
+
+APP_URL=http://localhost:8000
+FILESYSTEM_DISK=public
+FILAMENT_FILESYSTEM_DISK=public
+```
+
+### 5. Create Database
+
+Open phpMyAdmin at `http://localhost/phpmyadmin` and create a database named `tablenest`.
+
+### 6. Run Migrations
+
+```bash
+php artisan migrate
+```
+
+### 7. Create Storage Link
+
+```bash
+php artisan storage:link
+```
+
+### 8. Create Admin User
+
+```bash
+php artisan make:filament-user
+```
+
+Enter:
+- **Name:** TableNest Admin
+- **Email:** admin@tablenest.com
+- **Password:** Admin@1234
+
+### 9. Start the Server
+
+```bash
+php artisan serve
+```
+
+Visit `http://localhost:8000` to see the website.
+
+---
+
+## Admin Panel Usage
+
+Visit `http://localhost:8000/admin` and log in with the admin credentials.
+
+From the admin panel you can:
+
+- **Menu Items** — Add, edit, or remove menu items with price, description, photo, and category
+- **Staff** — Manage team members with photos, names, and roles
+- **Gallery** — Upload or delete gallery photos anytime
+- **About Content** — Edit restaurant story, chef introduction, and values
+- **Contact Info** — Update address, phone, email, and Google Maps embed
+
+---
+
+## Project Structure
+
+```
+tablenest/
+├── app/
+│   ├── Filament/Resources/     # Admin panel resources
+│   ├── Http/Controllers/       # Public website controllers
+│   └── Models/                 # Eloquent models
+├── database/
+│   └── migrations/             # Database migrations
+├── resources/
+│   └── views/                  # Blade templates
+│       ├── layouts/app.blade.php
+│       ├── home.blade.php
+│       ├── menu.blade.php
+│       ├── about.blade.php
+│       ├── staff.blade.php
+│       ├── gallery.blade.php
+│       └── contact.blade.php
+├── routes/
+│   └── web.php                 # Application routes
+└── public/
+    └── images/                 # Logo and static images
+```
+
+---
+
+## Deliverables
+
+- ✅ Fully functional restaurant website with all listed pages
+- ✅ Secure TableNest Admin login
+- ✅ Mobile responsive design
+- ✅ Working demo with sample content
+- ✅ Complete source code, clean and well organized
+- ✅ 1 round of revisions included after delivery
+
+---
+
+## Support
+
+For any issues or revision requests, please contact the developer.
+
+---
+
+*Built with ❤️ using Laravel & Filament*
