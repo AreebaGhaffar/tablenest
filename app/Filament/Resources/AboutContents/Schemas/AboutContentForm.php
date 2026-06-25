@@ -4,6 +4,7 @@ namespace App\Filament\Resources\AboutContents\Schemas;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\FileUpload;
 use Filament\Schemas\Schema;
 
 class AboutContentForm
@@ -20,7 +21,10 @@ class AboutContentForm
                 Textarea::make('chef_bio')
                     ->default(null)
                     ->columnSpanFull(),
-                TextInput::make('chef_photo')
+                FileUpload::make('chef_photo')
+                    ->image()
+                    ->directory('about')
+                    ->disk('public')
                     ->default(null),
                 Textarea::make('values')
                     ->default(null)
