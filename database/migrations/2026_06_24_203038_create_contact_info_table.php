@@ -1,0 +1,24 @@
+<?php
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('contact_info', function (Blueprint $table) {
+            $table->id();
+            $table->string('address');
+            $table->string('phone');
+            $table->string('email');
+            $table->text('map_embed')->nullable();
+            $table->json('opening_hours')->nullable();
+            $table->timestamps();
+        });
+    }
+    public function down(): void
+    {
+        Schema::dropIfExists('contact_info');
+    }
+};

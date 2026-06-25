@@ -1,0 +1,12 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class ContactInfo extends Model
+{
+    protected $table = 'contact_info';
+    protected $fillable = ['address', 'phone', 'email', 'map_embed', 'opening_hours'];
+    protected $casts = ['opening_hours' => 'array'];
+}
