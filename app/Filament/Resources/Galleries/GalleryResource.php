@@ -19,7 +19,7 @@ class GalleryResource extends Resource
     public static function form(Schema $schema): Schema
     {
         return $schema->components([
-            FileUpload::make('photo')->image()->directory('gallery')->required(),
+            FileUpload::make('photo')->image()->directory('gallery')->disk('public')->required(),
             TextInput::make('caption'),
         ]);
     }
@@ -28,6 +28,7 @@ class GalleryResource extends Resource
     {
         return $table->columns([
             Tables\Columns\ImageColumn::make('photo'),
+            Tables\Columns\ImageColumn::make('photo')->disk('public'),
             Tables\Columns\TextColumn::make('caption')->searchable(),
             Tables\Columns\TextColumn::make('created_at')->dateTime()->sortable(),
         ]);
