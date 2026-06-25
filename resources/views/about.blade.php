@@ -48,6 +48,13 @@
         margin-bottom: 3rem;
         align-items: center;
     }
+    .chef-section {
+    display: block;
+    background: var(--brown);
+    padding: 2.5rem;
+    border-radius: 4px;
+    margin-bottom: 3rem;
+}
 
     .chef-section img {
         width: 200px;
@@ -89,7 +96,7 @@
         <p>{{ $about->story }}</p>
     </div>
 
-    <div class="chef-section">
+    <div class="chef-section" style="{{ $about->chef_photo ? '' : 'display:block;' }}">
         @if($about->chef_photo)
         <img src="{{ asset('storage/'.$about->chef_photo) }}" alt="{{ $about->chef_name }}">
         @endif
@@ -98,6 +105,7 @@
             <p>{{ $about->chef_bio }}</p>
         </div>
     </div>
+    
 
     @if($about->values)
     <div class="about-story">
