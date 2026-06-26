@@ -23,6 +23,17 @@ TableNest is a complete restaurant web presence — from a polished public-facin
 
 ---
 
+## Screenshots
+
+### Public Website
+![Home Page](public/screenshots/home.png)
+![Menu Page](public/screenshots/menu-page.png)
+![Gallery](public/screenshots/gallery.png)
+
+### Admin Panel
+![Admin Login](public/screenshots/admin-login.png)
+![Menu Items Management](public/screenshots/menu-items.png)
+
 ## Pages
 
 | Route | Page | Description |
