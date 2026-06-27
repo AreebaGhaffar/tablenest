@@ -34,6 +34,8 @@ TableNest is a complete restaurant web presence — from a polished public-facin
 ![Admin Login](public/screenshots/admin-login.png)
 ![Menu Items Management](public/screenshots/menu-items.png)
 
+---
+
 ## Pages
 
 | Route | Page | Description |
@@ -42,7 +44,7 @@ TableNest is a complete restaurant web presence — from a polished public-facin
 | `/menu` | Menu | Tabbed by category: Starters, Mains, Desserts, Drinks |
 | `/about` | About Us | Restaurant story, chef profile, brand values |
 | `/staff` | Our Team | Staff cards with photos, names, and roles |
-| `/gallery` | Gallery | Masonry photo grid with hover captions |
+| `/gallery` | Gallery | Photo grid with hover captions |
 | `/contact` | Contact | Address, phone, email, map embed, contact form |
 | `/admin` | Admin Panel | Secure dashboard — full content control |
 
@@ -65,12 +67,12 @@ The **TableNest Admin** can log in at `/admin` and manage:
 ## Tech Stack
 
 ```
-Frontend    →  Blade Templates · Vanilla CSS · Alpine.js
+Frontend    →  Blade Templates · Custom CSS · Vanilla JavaScript
 Backend     →  Laravel 12 (PHP 8.2)
 Database    →  MySQL 8
 Admin       →  Filament v5
 Auth        →  Laravel Breeze
-Storage     →  Laravel Filesystem (local/public disk)
+Storage     →  Laravel Filesystem (public disk)
 Build Tool  →  Vite
 ```
 
